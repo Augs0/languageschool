@@ -1,0 +1,22 @@
+[
+	{
+	"language": "English",
+	"places": "English is spoken as a first language in the UK, the United States of America, Canada, Australia, and New Zealand. It is an official language in many African, Caribbean and South Asian nations due to colonal and imperial history. Many dialects and forms exist across the world."
+	},
+	{
+	"language": "German",
+	"places": "German is spoken in Germany, Austria,  Switzerland and amongst several other communities across Europe. It also remains spoken in places further afield, like Namibia, due to colonial history."
+	},
+	{
+	"language": "Japanese",
+	"places": "Japanese is spoken primarily in Japan, though there are sizeable overseas communities in both Hawaii and Brazil"
+	},
+	{
+	"language":"Korean",
+	"places": "Korean is spoken almost solely in the two Koreas - though there are diaspora living elsewhere."
+	},
+	{
+	"language":"Spanish",
+	"places": "Spanish is spoken widely across the globe - not only in Spain - but also in the nations of Latin/South America as well as many other countries in Asia and Africa due to colonial history."
+	}
+]
