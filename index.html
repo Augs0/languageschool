@@ -1,0 +1,115 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>August's language school</title>
+		<link rel="stylesheet" type="text/css" href="mystyle.css">
+	</head>
+	<body>
+	<div id="main">
+		<h1>August's language school</h1>
+
+		<h2>Please search below for languages available at the school</h2>
+
+		<form id="form" method="get">
+			<input id="language" type=text name="language" placeholder="Please use a capital letter!">
+			<input id ="submit" type=submit value="Submit">
+		</form>
+
+		<div id="message"></div>
+		<div id="info"></div>
+		<div id="confirm"></div>
+	</div>
+	<script>
+	//function to show responseText//function to show info if it's a valid language
+	document.getElementById('submit').addEventListener('click', respond);
+	document.getElementById('submit').addEventListener('click', showInfo);
+
+
+	function respond(e){
+		e.preventDefault();	//prevent page refresh!
+		var userInput = document.getElementById('language').value; //have to grab the input, must go here so that when loops begins again it updates
+		var xhr = new XMLHttpRequest();//create request variable
+		xhr.open('GET', 'languages.json', true);//set up request with method, url/doc, true
+
+		xhr.onload = function(){//function to be called when request is sent
+			if(this.status == 200){
+				var lang = JSON.parse(this.responseText); //parse changes data into an object so it can accessed as below
+
+				var output = ' ';
+				
+				for(var i in lang){
+				if(userInput == lang[i].language){
+				output += 'We teach ' + lang[i].language;
+				document.getElementById('confirm').innerHTML =' ';
+				}
+			}//end loop
+			if(output == ' '){
+				document.getElementById('message').innerHTML = "Sorry, we do not teach " +userInput+ " <br><br>Want to request this as a language we teach in the future? <br><br> <button id='request'>Request this language</button>";
+				document.getElementById('confirm').innerHTML =' ';
+				document.getElementById('request').addEventListener('click', confirmation);
+				document.getElementById('form').reset();
+				
+			}else{
+				document.getElementById('message').innerHTML = output;
+			}
+		} 
+	}
+
+		xhr.send();
+}
+
+	function showInfo(e){
+		e.preventDefault();	//prevent page refresh!
+		var userInput = document.getElementById('language').value; //have to grab the input, must go here so that when loops begins again it updates
+		var xhr = new XMLHttpRequest();//create request variable
+		xhr.open('GET', 'languages.json', true);//set up request with method, url/doc, true
+
+		xhr.onload = function(){//function to be called when request is sent
+		if(this.status == 200){
+			var lang = JSON.parse(this.responseText); //parse changes data into an object so it can accessed as below
+
+			var output = ' ';
+
+			if(userInput == "English"){
+			output += '<ul>'+
+			'<li><b>Where is it spoken?</b> ' +lang[0].places;
+
+			document.getElementById('info').innerHTML = output;
+			
+			}else if(userInput == "German"){
+			output += '<ul>'+
+			'<li><b>Where is it spoken?</b> ' +lang[1].places;
+			document.getElementById('info').innerHTML = output;
+			}else if(userInput == "Japanese"){
+			output += '<ul>'+
+			'<li><b>Where is it spoken?</b> ' +lang[2].places;
+			document.getElementById('info').innerHTML = output;
+			}else if(userInput == "Korean"){
+			output += '<ul>'+
+			'<li><b>Where is it spoken? </b>' +lang[3].places;
+			document.getElementById('info').innerHTML = output;
+			}else if(userInput == "Spanish"){
+			output += '<ul>'+
+			'<li><b>Where is it spoken?</b> ' +lang[4].places;
+			document.getElementById('info').innerHTML = output;
+			}else
+			document.getElementById('info').innerHTML = " ";
+		}
+	}
+	xhr.send();
+}
+
+
+	function confirmation(){
+		document.getElementById('confirm').innerHTML = "Thank you for your request!";
+	}
+	
+
+	
+
+
+
+	</script>
+	</body>
+</html>
