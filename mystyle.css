@@ -1,0 +1,44 @@
+html, body{
+	margin:0;
+	padding:0;
+}
+
+body{
+	background-color: #34aa4d;
+	background-image:url("https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Simplified_blank_world_map_without_Antartica_%28no_borders%29.svg/1280px-Simplified_blank_world_map_without_Antartica_%28no_borders%29.svg.png");
+	background-repeat:no-repeat;
+	color:black;
+	font-family:sans-serif;
+}
+
+#main{
+	width:500px;
+	height:500px;
+	position:relative;
+	transform:translate(-50%,50%); /*centres the div*/
+	left:50%; /*centres the div*/
+	top:50%; /*centres the div*/
+}
+
+h1{
+	font-size:2em;
+}
+
+h2{
+	font-size:1em;
+}
+
+h1, h2, form, #message, #info{
+	background-color:#34aa4d;
+}
+
+form{
+	padding:5px;
+}
+
+#language{
+	width:200px;
+}
+
+
+
